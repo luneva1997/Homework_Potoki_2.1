@@ -39,12 +39,7 @@ public class Main {
 
         Map<Integer, Integer> sortedSizeToFreQ = new TreeMap<>(sizeToFreq);
 
-        Map.Entry<Integer, Integer> maxEntry = Collections.max(sortedSizeToFreQ.entrySet(), new Comparator<Map.Entry<Integer, Integer>>() {
-            public int compare(Map.Entry<Integer, Integer> e1, Map.Entry<Integer,Integer> e2) {
-                return e1.getValue()
-                        .compareTo(e2.getValue());
-            }
-        });
+        Map.Entry<Integer, Integer> maxEntry = Collections.max(sortedSizeToFreQ.entrySet(), Map.Entry.comparingByValue());
 
         System.out.println("Самое частое количество повторений " + maxEntry.getKey() + " (встретилось " + maxEntry.getValue() + " раз)");
 
